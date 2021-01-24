@@ -68,3 +68,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Sample UI started from
+
+[https://www.positronx.io/build-react-login-sign-up-ui-template-with-bootstrap-4/](https://www.positronx.io/build-react-login-sign-up-ui-template-with-bootstrap-4/)
+

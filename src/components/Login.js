@@ -1,16 +1,16 @@
 import React from 'react';
 
-const LoginPage = () => {
+const Login = () => {
   return (
     <form>
-      <h3>Sign In</h3>
+      <h3>Login</h3>
 
       <div className="form-group">
-        <label>Email address</label>
+        <label>User name</label>
         <input
-          type="email"
+          type="text"
           className="form-control"
-          placeholder="Enter email"
+          placeholder="Enter user name"
         />
       </div>
 
@@ -23,21 +23,8 @@ const LoginPage = () => {
         />
       </div>
 
-      <div className="form-group">
-        <div className="custom-control custom-checkbox">
-          <input
-            type="checkbox"
-            className="custom-control-input"
-            id="customCheck1"
-          />
-          <label className="custom-control-label" htmlFor="customCheck1">
-            Remember me
-          </label>
-        </div>
-      </div>
-
       <button type="submit" className="btn btn-primary btn-block">
-        Submit
+        Login
       </button>
       <p className="forgot-password text-right">
         Forgot <a href="#">password?</a>
@@ -46,4 +33,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;

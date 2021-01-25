@@ -1,11 +1,22 @@
-# Getting Started with Create React App
+# login-flow-ex
+Code Challenge for WebRoot
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## summary
+In the language of your choice, create a user authentication program. In this program, a user should be able to
+register an account with login credentials, login to that account using those credentials, and logout.
 
-## Available Scripts
+## prerequisites
+Node.js and npm are needed.
 
-In the project directory, you can run:
+## running login-flow-ex
 
+### `installing`
+````
+git clone https://github.com/arthuranderson3/login-flow-ex.git
+
+cd login-flow-ex && npm install
+
+````
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -14,57 +25,61 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+# design
+I chose react and javascript b/c after reading about swift I thought there were alot of similarities in language syntax.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Expected Flow
+### Initial Start Up
+Will redirect the user to the login page. 
+The DB is empty on initial start and you will not be able to login. 
 
-### `npm run build`
+The navbar will only show links to login and register page when Auth state isAuthenticated is false.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The navbar will change once a user is logged in.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `RegisterPage`.
+Upon registering a user I assumed they would be logged in and will be redirected to home page and Navbar will change the links [Home and Logout]
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `LoginPage`
+Upon successful login the user will be redirected to the home page and Navbar links will change [Home and Logout]
 
-### `npm run eject`
+### `LogoutPage`
+Upon logout the Navbar links will change to [ Login, Register]
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `HomePage`
+Home page will display an error if we got there and are not authenticated. This should not happen now.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* `Reset Database` will destroy the db and redirect you to register page.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## starting points
+These are suggested starting points.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### src/provider/ProvideAuth
+Contains state [ isAuthenticated, user ] and methods [login, logout, register]
+They are shared across all children components by wrapping all components in the App with <ProvideAuth>
 
-## Learn More
+### src/components/App
+defines the structure of the app
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Coding style
+`Prettier` is the code formatter, config file: .prettierrc.yaml.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+`Eslint` is the linter
 
-### Analyzing the Bundle Size
+## `dir` structure
+````
+./src 
+  components - react components 
+    [Login, Register, Logout, Home, Navbar, App]
+  model
+    [errors, credentials]
+  provider 
+    [ProvideAuth] - authentication module
+  query 
+    db methods for indexed db service
+  service 
+    [CredentialsDb] PouchDb
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+````

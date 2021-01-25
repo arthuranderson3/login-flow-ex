@@ -10,6 +10,10 @@ Node.js and npm are needed.
 
 ## running login-flow-ex
 
+### `installing`
+`git clone https://
+`cd login-flow-ex && npm install`
+
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -42,27 +46,7 @@ Upon logout the Navbar links will change to [ Login, Register]
 ### `HomePage`
 Home page will display an error if we got there and are not authenticated. This should not happen now.
 
-Destroy Credentials button will destroy the db and redirect you to register page.
-
-
-## Coding style
-Prettier is the code formatter, config file: .prettierrc.yaml.
-
-## dir structure
-````
-./src/ - the source files
-  components - react components 
-    [Login, Register, Logout, Home, Navbar, App]
-  model
-    [errors, credentials]
-  provider 
-    [ProvideAuth] - authentication module
-  query 
-    db methods for indexed db service
-  service 
-    [CredentialsDb]
-
-````
+* `Reset Database` will destroy the db and redirect you to register page.
 
 ## starting points
 These are suggested starting points.
@@ -74,3 +58,23 @@ They are shared across all children components by wrapping all components in the
 ### src/components/App
 defines the structure of the app
 
+
+
+## Coding style
+`Prettier` is the code formatter, config file: .prettierrc.yaml.
+
+## `dir` structure
+````
+./src 
+  components - react components 
+    [Login, Register, Logout, Home, Navbar, App]
+  model
+    [errors, credentials]
+  provider 
+    [ProvideAuth] - authentication module
+  query 
+    db methods for indexed db service
+  service 
+    [CredentialsDb] PouchDb
+
+````

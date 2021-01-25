@@ -1,9 +1,11 @@
 import React from 'react';
 import { destroyCredentialsDb } from '../service/Db';
 import { useAuth } from '../provider/ProvideAuth';
+import { useHistory } from 'react-router-dom';
 
 const HomePage = () => {
   const auth = useAuth();
+  const history = useHistory();
   if (auth.isAuthenticated === false) {
     return (
       <div>
@@ -16,7 +18,9 @@ const HomePage = () => {
   }
   const onClickResetDb = () => {
     destroyCredentialsDb();
-    auth.logout();
+    auth.logout().then(() => {
+      history.replace('/register');
+    });
   };
   return (
     <div>

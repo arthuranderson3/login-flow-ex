@@ -11,9 +11,12 @@ Node.js and npm are needed.
 ## running login-flow-ex
 
 ### `installing`
-`git clone https://
-`cd login-flow-ex && npm install`
+````
+git clone https://github.com/arthuranderson3/login-flow-ex.git
 
+cd login-flow-ex && npm install
+
+````
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -62,6 +65,8 @@ defines the structure of the app
 
 ## Coding style
 `Prettier` is the code formatter, config file: .prettierrc.yaml.
+
+`Eslint` is the linter
 
 ## `dir` structure
 ````
